@@ -1,6 +1,6 @@
 <template>
-	<view v-show="seen" class="banner" @tap="handleTap" :style="{'height': heightPx+'px' }">
-		<image :src="image" :style="{'height': heightPx+'px' }"></image>
+	<view v-show="seen" class="banner" @tap="handleTap" :style="{'height': heightPx + 'px' }">
+		<image :src="image" :style="{'height': heightPx + 'px' }"></image>
 	</view>
 </template>
 
@@ -11,27 +11,27 @@
 			image: {
 				type: String,
 				// default: 'http://via.placeholder.com/300x150'
-				default: '',
+				default: ''
 			},
 			height: {
-				type: [Number,String],
-				default: 250,
+				type: [Number, String],
+				default: 250
 			}
 		},
 		computed: {
-			seen() {
+			seen () {
 				// return (this.image.length > 0);
-				return true;
+				return true
 			},
-			heightPx() {
-								let height = uni.getSystemInfoSync().windowWidth / 750 * this.height;
-								return height;
+			heightPx () {
+				let height = uni.getSystemInfoSync().windowWidth / 750 * this.height;
+				return height
 				// return uni.upx2px(this.height);
 			}
 		},
 		methods: {
 			handleTap() {
-				this.$emit('tap');
+				this.$emit('tap')
 			},
 		}
 	}

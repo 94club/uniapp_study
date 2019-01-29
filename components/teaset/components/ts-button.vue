@@ -1,6 +1,9 @@
 <template>
-	<view :style="styleStr + 'height:' +heightPx + 'px; padding:' + paddingPx + 'px; border-radius:' + borderRadiusPx +'px;' "
-	 :disabled="disabled" @click="onClick" :hover-class="disabled?'none':'navigator-hover'" :class="['ts-btn', 'ts-btn-'+type, outlined === true ? 'ts-btn-outlined' : '', disabled ? 'ts-btn-disabled':'']">
+	<view :style="styleStr + 'height:' + heightPx + 'px; padding:' + paddingPx + 'px; border-radius:' + borderRadiusPx +'px;' "
+	 :disabled="disabled" 
+	 @click="onClick" 
+	 :hover-class="disabled ?'none':'navigator-hover'" 
+	 :class="['ts-btn', 'ts-btn-'+type, outlined === true ? 'ts-btn-outlined' : '', disabled ? 'ts-btn-disabled':'']">
 		<!--  ts-btn-primary ts-btn-outlined ts-btn-enabled -->
 		<slot></slot>
 	</view>
@@ -16,11 +19,11 @@
 			},
 			height: {
 				type: Number,
-				default: 80,
+				default: 80
 			},
 			padding: {
 				type: Number,
-				default: 10,
+				default: 10
 			},
 			type: {
 				type: String,
@@ -28,7 +31,7 @@
 			},
 			borderRadius: {
 				type: Number,
-				default: 0,
+				default: 0
 			},
 			disabled: {
 				type: Boolean,
@@ -40,23 +43,22 @@
 			},
 		},
 		computed: {
-			heightPx() {
-				return uni.upx2px(this.height);
+			heightPx () {
+				return uni.upx2px(this.height)
 			},
-			paddingPx() {
-								let padding = uni.getSystemInfoSync().windowWidth / 750 * this.padding;
-								return padding        
-				// return uni.upx2px(this.padding);
+			paddingPx () {
+				let padding = uni.getSystemInfoSync().windowWidth / 750 * this.padding
+				return padding        
+				// return uni.upx2px(this.padding)
 			},
-			borderRadiusPx() {
-        	let borderRadius = uni.getSystemInfoSync().windowWidth / 750 * this.borderRadius;
+			borderRadiusPx () {
+				let borderRadius = uni.getSystemInfoSync().windowWidth / 750 * this.borderRadius
         return borderRadius   
-				// return uni.upx2px(this.borderRadius);
+				// return uni.upx2px(this.borderRadius)
 			}
 		},
 		methods: {
-			onClick() {
-			
+			onClick () {
 				if (!this.disabled) {
 					this.$emit('click')
 					// console.log('onClick')

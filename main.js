@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
-// import store from '@/store/index'
-// import request from '@/common/request'
+import store from '@/store/index'
+import request from '@/common/request'
 // import {logger,dump} from '@/common/logger'
 
 //常用组件，全局注册
@@ -24,8 +24,8 @@ Vue.component('ts-banner', tsBanner);
 Vue.component('ts-line', tsLine);
 Vue.config.productionTip = false;
 //挂载全局对象
-// Vue.prototype.$store = store
-// Vue.prototype.$request = request
+Vue.prototype.$store = store
+Vue.prototype.$request = request
 // Vue.prototype.$logger =logger; // 日志记录器
 
 

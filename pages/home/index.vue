@@ -44,10 +44,10 @@
 			</navigator>
 		</view>
 		<view class="ts-gap"></view>
-		<view class="ts-row ts-padding" style="background-color: #007AFF;">
+		<view class="ts-row ts-padding" style="background-color: #007AFF;" @tap="login">
 			<text class="ts-h4">最新校园活动</text>
 		</view>
-    <block v-if="app && app.data">
+    <!-- <block v-if="app && app.data">
       <block v-for="(app,index) in eventList" :key="index">
         <block v-for="item in app.data" :key="item.id">
           <view class="ts-row" style="margin-left: 10upx; margin-right: 10upx; padding: 10upx; background-color: #FFF;">
@@ -72,7 +72,7 @@
           <view class="ts-gap"></view>
         </block>
       </block>
-    </block>
+    </block> -->
 		<view class="ts-column">
 			<ts-load-more :loadingType="loadingType" @tap="getEventListMoreData"></ts-load-more>
 		</view>
@@ -81,6 +81,7 @@
 <script>
 	import tsAd from '@/components/teaset/components/ts-ad.vue'
 	import tsScrollMessage from '@/components/teaset/components/ts-scroll-message.vue'
+	import urls from '../../common/urls.js'
 	export default {
 		components: {
 			tsAd,
@@ -109,6 +110,11 @@
 			this.getEventListMoreData()
 		},
 		methods: {
+			login () {
+				this.$request.post(urls.getToken, {username: 'admin', password: '123456'}).then((res) => {
+					console.log(res)
+				})
+			},
 			openBeidian () {
 				// #ifdef APP-PLUS
 				const api = 'https://m.beidian.com/shop/shopkeeper.html?shop_id=682731&utm_source=bd_dpewmtp'
