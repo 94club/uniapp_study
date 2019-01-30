@@ -1,6 +1,6 @@
 <template>
   <view class="ts-badge-wraper" :style="'padding-left:' + paddingLeftPx + 'px;'" @click="onClick()">
-    <view class="ts-badge" v-if="text" :class="[!!inverted ? 'ts-badge-inverted' : '', 'ts-badge-' + type]">
+    <view class="ts-badge" v-if="text" :class="[!!inverted? 'ts-badge-inverted' : '','ts-badge-'+type]">
       {{text}}
     </view>
   </view>
@@ -24,17 +24,17 @@
       inverted: {
         type: [Boolean, String],
         default: false
-      }
+      },
     },
     computed: {
-      paddingLeftPx () {
-        let paddingLeft = uni.getSystemInfoSync().windowWidth / 750 * this.paddingLeft
+      paddingLeftPx() {
+        let paddingLeft = uni.getSystemInfoSync().windowWidth / 750 * this.paddingLeft;
         return paddingLeft
-        // return uni.upx2px(this.paddingLeft)
+        // return uni.upx2px(this.paddingLeft);
       }
     },
     methods: {
-      onClick () {
+      onClick() {
         this.$emit('click', this.text)
       }
     }

@@ -2,7 +2,7 @@
 	<view class="ts-column ts-full-width" style="background: #E0E0E0;">
 		<view class="store-images-swiper-box">
 			<swiper autoplay interval="3000" circular :indicator-dots="true">
-				<swiper-item v-for="(img,index) in config.home_swiper_images" :key="index">
+				<swiper-item v-for="img in config.home_swiper_images" :key="img">
 					<view class="store-images-img-box">
 						<view class="store-images-img">
 							<image :src="img"></image>
@@ -44,35 +44,36 @@
 			</navigator>
 		</view>
 		<view class="ts-gap"></view>
-		<view class="ts-row ts-padding" style="background-color: #007AFF;" @tap="login">
+		<view class="ts-row ts-padding" style="background-color: #007AFF;">
 			<text class="ts-h4">最新校园活动</text>
 		</view>
-    <!-- <block v-if="app && app.data">
-      <block v-for="(app,index) in eventList" :key="index">
-        <block v-for="item in app.data" :key="item.id">
-          <view class="ts-row" style="margin-left: 10upx; margin-right: 10upx; padding: 10upx; background-color: #FFF;">
-            <view class="ts-column ts-flex-item" hover-class="ts-list-cell-hover" @tap="showDetail(app.type,item.id)">
-              <view class="ts-column ts-flex-item">
-                <view class="ts-row">
-                  <image :src="item.cover_image" style="width: 100%; height: 250upx;"></image>
-                </view>
-                <view class="ts-row  ts-padding-top ts-padding-bottom" style="justify-content: space-between;">
-                  <view class="ts-h5">{{item.title}}</view>
-                  <ts-tag type="danger" :text="app.type.title" size="small"></ts-tag>
-                </view>
-              </view>
-              <view class="ts-row" style="justify-content: space-between; align-items: center; border-top: #EEEEEE solid 1upx; padding: 10upx 0upx;">
-                <view class="ts-h5">
-                  立即查看
-                </view>
-                <ts-icon type="arrowright" size="32" color="#bbb"></ts-icon>
-              </view>
-            </view>
-          </view>
-          <view class="ts-gap"></view>
-        </block>
-      </block>
-    </block> -->
+    <block v-for="(app,index) in eventList" :key="index">
+			<block v-if="app && app.data">
+				<block  v-for="(item,idx) in app.data" :key="idx">
+					<view class="ts-row" style="margin-left: 10upx; margin-right: 10upx; padding: 10upx; background-color: #FFF;">
+						<view class="ts-column ts-flex-item" hover-class="ts-list-cell-hover" @tap="showDetail(app.type, item.id)">
+							<view class="ts-column ts-flex-item">
+								<!-- <view class="ts-row ts-h4 ts-padding-top ts-padding-bottom">{{item.title}}</view> -->
+								<view class="ts-row">
+									<image :src="item.cover_image" style="width: 100%; height: 250upx;"></image>
+								</view>
+								<view class="ts-row  ts-padding-top ts-padding-bottom" style="justify-content: space-between;">
+									<view class="ts-h5">{{item.title}}</view>
+									<ts-tag type="danger" :text="app.type.title" size="small"></ts-tag>
+								</view>
+							</view>
+							<view class="ts-row" style="justify-content: space-between; align-items: center; border-top: #EEEEEE solid 1upx; padding: 10upx 0upx;">
+								<view class="ts-h5">
+									立即查看
+								</view>
+								<ts-icon type="arrowright" size="32" color="#bbb"></ts-icon>
+							</view>
+						</view>
+					</view>
+					<view class="ts-gap"></view>
+				</block>
+			</block>
+		</block>
 		<view class="ts-column">
 			<ts-load-more :loadingType="loadingType" @tap="getEventListMoreData"></ts-load-more>
 		</view>
@@ -110,11 +111,6 @@
 			this.getEventListMoreData()
 		},
 		methods: {
-			login () {
-				this.$request.post(urls.getToken, {username: 'admin', password: '123456'}).then((res) => {
-					console.log(res)
-				})
-			},
 			openBeidian () {
 				// #ifdef APP-PLUS
 				const api = 'https://m.beidian.com/shop/shopkeeper.html?shop_id=682731&utm_source=bd_dpewmtp'
@@ -141,17 +137,14 @@
 				this.page = 0
 			},
 			showDetail (type, id) {
-				const url = `/pages/app/${type.app}/detail?id=${id}`
-				uni.navigateTo({
-					url: url
+				// const url = `/pages/app/${type.app}/detail?id=${id}`
+				// uni.navigateTo({
+				// 	url: url
+				// })
+				uni.showToast({
+					title: '暂未添加点击事件',
+					icon: 'none'
 				})
-			},
-			navigateTo (url) {
-				if (url) {
-					uni.navigateTo({
-						url: url
-					})
-				}
 			},
 			getEventListMoreData () {
 				//上拉的状态：0-loading前；1-loading中；2-没有更多了

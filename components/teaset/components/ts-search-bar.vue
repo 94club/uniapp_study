@@ -33,11 +33,12 @@
 	 * <ts-search-bar v-model="keywords" @search="search"></ts-search-bar>
 	 * <ts-search-bar :readonly="true" @tap="gotoSearchPage"></ts-search-bar>
 	 */
-	import tsIcon from './ts-icon.vue'
+
+	import tsIcon from './ts-icon.vue';
 	export default {
 		name: 'ts-search-bar',
 		components: {
-			tsIcon
+			tsIcon,
 		},
 		//自定义prop名字，事件名字，使用v-model会自动修改生成的代码
 		model: {
@@ -51,7 +52,7 @@
 			},
 			keywords: {
 				type: String,
-				default: ''
+				default: ""
 			},
 			placeholder: {
 				type: String,
@@ -59,56 +60,56 @@
 			},
 			showFilterButton: {
 				type: [Boolean, String],
-				default: false
-			}
+				default: false,
+			},
 		},
-		data () {
+		data() {
 			return {
-				keywords_: ''
+				keywords_: '',
 			}
 		},
 		computed: {
-			filterButton () {
-				return this.showFilterButton === "true" || this.showFilterButton === true
+			filterButton() {
+				return (this.showFilterButton === "true" || this.showFilterButton === true)
 			}
 		},
-		mounted () {
-			this.keywords_ = this.keywords
+		mounted() {
+			this.keywords_ = this.keywords;
 		},
 		methods: {
-			handleInput (e) {
-				if (this.readonly === true || this.readonly === 'true') {
-				} else {
+			handleInput(e) {
+				if (this.readonly === true || this.readonly === 'true') {} else {
 					this.keywords_ = e.target.value;
 					this.$emit('change', e.target.value)
 				}
 			},
-			handleSearch (e) {
-				if (this.readonly === true || this.readonly === 'true') {
-				} else {
+			handleSearch(e) {
+				if (this.readonly === true || this.readonly === 'true') {} else {
 					this.$emit('search', this.keywords_)
 				}
 			},
-			// 用于构造搜索框占位符，点击跳转到新的搜索页面
-			handleTap () {
+			//用于构造搜索框占位符，点击跳转到新的搜索页面
+			handleTap() {
 				if (this.readonly === true || this.readonly === 'true') {
-					this.$emit('tap')
+					this.$emit('tap');
 				}
 			},
-			handleFilter () {
-				if (this.filterButton) {
-					this.$emit('filter')
+			handleFilter(){
+				if (this.filterButton){
+					this.$emit('filter');
 				}
 			}
-		}
+		},
 	}
 </script>
+
 <style>
 	.ts-search-wraper {
 		display: flex;
 		flex-direction: row;
 		width: 100%;
 	}
+
 	.header {
 		display: flex;
 		flex-direction: row;
@@ -116,6 +117,7 @@
 		align-items: center;
 		width: 100%;
 	}
+
 	.input-view {
 		display: flex;
 		align-items: center;
@@ -126,6 +128,7 @@
 		padding: 0 10upx;
 		flex: 1;
 	}
+
 	.input {
 		flex: 1;
 		padding: 0 5upx;

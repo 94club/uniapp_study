@@ -6,7 +6,6 @@ import cartModule from './modules/cart'
 // const debug = true
 // const getters = {}
 const state = {
-  forcedLogin: true,
   userInfo: ''
 }
 const actions = {
