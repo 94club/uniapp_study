@@ -61,17 +61,5 @@
       "selectedIconPath": "static/tabbar/myHL.png",
       "text": "我的"
     }]
-  },
-  "condition": {
-    "current": 1,
-    "list": [{
-      "name": "ESC",
-      "path": "pages/app/esc/index",
-      "query": ""
-    }, {
-      "name": "首页",
-      "path": "pages/home/index", 
-      "query": ""
-    }]
   }
 }

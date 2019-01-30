@@ -1,1 +1,1 @@
-## 这是read.me
+## 连接模拟器： 进入adb命令目录  eg: cd e:/sdk/platform-tools/    adb connect 127.0.0.1:7555 

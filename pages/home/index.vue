@@ -92,7 +92,7 @@
 				config: {},
 				loadingType: 0, // 上拉的状态：0-loading前；1-loading中；2-没有更多了
 				page: 0,
-				eventList: [],
+				eventList: []
 			}
 		},
 		onPullDownRefresh () {
