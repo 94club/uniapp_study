@@ -1,20 +1,28 @@
 <template>
-	<view class="ts-ad-wraper" v-if="!bannerHidden">
-		<view class="ts-ad">
-			<view class="ts-ad-content" @tap="handleTap">
+	<view class="ts-banner-wraper">
+		<!-- 弹出层 -->
+		<view class="ts-banner" style="background:#DEF0F0;" v-show="!bannerHidden">
+			<view style="display: flex; flex-direction: row; flex: 1; justify-content:flex-end; z-index: 101;">
+				<image :src="closeButtonImage" style="width:120upx; border-top-right-radius:10upx;" mode="widthFix" @tap="closeBanner"></image>
+			</view>
+			<view class="ts-banner-content">
 				<slot></slot>
 			</view>
-			<view class="ts-ad-close-button" @tap="handleClose">
-				<image :src="closeButtonImage" mode="widthFix"></image>
-			</view>
 		</view>
+		<view class="ts-mask" v-show="!bannerHidden"></view>
+		<!-- 弹出层 -->
 	</view>
 
 </template>
 
 <script>
+	//   使用方法
+	//   <ts-popup-ad v-model="hiddenBanner" @close="handleClose">
+	//   	<ts-banner image="https://img.mukewang.com/5b3c2d6e0001241b09360316.jpg" height="250"></ts-banner>
+	//   </ts-popup-ad>
+	var self;
 	export default {
-		name: 'ts-ad',
+		name: 'ts-popup-ad',
 		data() {
 			return {
 				bannerHidden: false,
@@ -26,7 +34,7 @@
 		},
 		props: {
 			hidden: {
-				type: [Boolean, String],
+				type: Boolean,
 				default: false
 			},
 			closeButtonImage: {
@@ -36,6 +44,8 @@
 		},
 		watch: {
 			bannerHidden(val) {
+				// console.log(val)
+				//触发广告关闭事件，用于处理点击率的计算等
 				this.$emit('close', val);
 			},
 			hidden(val) {
@@ -48,46 +58,59 @@
 		},
 		methods: {
 			updateValue(val) {
-				this.bannerHidden = !!val;
+				this.bannerHidden = val;
 			},
-			handleClose() {
+			closeBanner: function() {
 				this.bannerHidden = true;
-			},
-			handleTap() {
-				console.log('Tap')
-				this.$emit('tap');
 			}
 		}
 	}
 </script>
 
 <style>
-	.ts-ad-wraper {
+	.ts-banner-wraper {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-content: flex-start;
+	}
+
+	/* 遮罩层 */
+	.ts-mask {
+		background: rgba(0, 0, 0, 0.6);
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		z-index: 1;
+	}
+
+	.ts-banner-content {
 		display: flex;
 		flex-direction: column;
 		flex: 1;
-	}
 
-	.ts-ad {
-		background: #DEF0F0;
-		display: block;
-		position: relative;
-		width: 100%;
-	}
-
-	.ts-ad-content {
-		display: block;
-		width: 100%;
-	}
-
-	.ts-ad-close-button {
-		display: block;
-		position: absolute;
-		right: 0;
+		position: fixed;
 		top: 0;
+		left: 0;
+		width: 100%;
+		/* height: 100%; */
+		z-index: 100;
 	}
 
-	.ts-ad-close-button image {
-		width: 60px;
+	/* 弹出层形式的广告 */
+	.ts-banner {
+		display: flex;
+		flex-direction: column;
+
+		width: 80%;
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		background: #FFF;
+		border-radius: 10upx;
+		z-index: 99;
+		transform: translate(-50%, -50%);
 	}
 </style>

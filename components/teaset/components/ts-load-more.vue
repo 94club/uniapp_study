@@ -53,12 +53,11 @@
 			}
 		},
 		data() {
-			return {
-			}
+			return {}
 		},
     methods:{
-      handleTap (e){
-        if (this.loadingType ===0) {
+      handleTap(e){
+        if (this.loadingType ===0){
           this.$emit('tap')          
         }
       }

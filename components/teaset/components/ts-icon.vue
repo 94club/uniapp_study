@@ -1,9 +1,5 @@
 <template>
-	<view v-if="type" class="ts-icon" 
-		:class="['ts-icon-' + type]" 
-		:style="{color:color, 'font-size':fontSize}" 
-		@click="onClick()">
-	</view>
+	<view v-if="type" class="ts-icon" :class="['ts-icon-'+type]" :style="{color:color,'font-size':fontSize}" @click="onClick()"></view>
 </template>
 
 <script>
@@ -30,14 +26,14 @@
 			}
 		},
 		computed: {
-			fontSize () {
+			fontSize() {
 				//单位换算为px
 				let size = uni.getSystemInfoSync().windowWidth / 750 * this.size;
 				return `${size}px`
 			}
 		},
 		methods: {
-			onClick () {
+			onClick() {
 				this.$emit('click')
 			}
 		}

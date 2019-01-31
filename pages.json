@@ -1,41 +1,223 @@
 {
-	"pages": [
-		{
+  "pages": [
+    {
       "path": "pages/home/index",
       "style": {
         "navigationBarTitleText": "Home",
         "enablePullDownRefresh": true
       }
-		},
-		{
+    }, {
       "path": "pages/app/esc/index",
       "style": {
-        "navigationBarTitleText": "校企合作平台",
+        "navigationBarTitleText": "企校合作平台",
         "enablePullDownRefresh": true
       }
-		},
-		{
+    }, {
+      "path": "pages/app/esc/project/index",
+      "style": {
+        "navigationBarTitleText": "合作项目",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/company/index",
+      "style": {
+        "navigationBarTitleText": "合作企业",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/company/detail",
+      "style": {
+        "navigationBarTitleText": "企业详细信息",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/school/index",
+      "style": {
+        "navigationBarTitleText": "合作学校",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/school/detail",
+      "style": {
+        "navigationBarTitleText": "学校详情",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/job/index",
+      "style": {
+        "navigationBarTitleText": "人才供需信息",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/job/demand/index",
+      "style": {
+        "navigationBarTitleText": "企业用人需求",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/job/demand/detail",
+      "style": {
+        "navigationBarTitleText": "企业用人需求详情",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/job/supply/index",
+      "style": {
+        "navigationBarTitleText": "高校人才供应",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/job/supply/detail",
+      "style": {
+        "navigationBarTitleText": "高校人才供给详情",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/student/index",
+      "style": {
+        "navigationBarTitleText": "个人中心",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/student/add",
+      "style": {
+        "navigationBarTitleText": "增加简历",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/esc/student/resume",
+      "style": {
+        "navigationBarTitleText": "我的简历",
+        "enablePullDownRefresh": true
+      }
+    }, {
       "path": "pages/app/syb/index",
       "style": {
         "navigationBarTitleText": "创业路",
         "enablePullDownRefresh": true
       }
-		},
-		{
+    }, {
+      "path": "pages/app/syb/project/index",
+      "style": {
+        "navigationBarTitleText": "创业项目",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/syb/project/detail",
+      "style": {
+        "navigationBarTitleText": "项目详情",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/syb/match/index",
+      "style": {
+        "navigationBarTitleText": "创业大赛",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/syb/match/detail",
+      "style": {
+        "navigationBarTitleText": "创业大赛详情",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/syb/job/index",
+      "style": {
+        "navigationBarTitleText": "就业街",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/syb/job/detail",
+      "style": {
+        "navigationBarTitleText": "职位详情",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/syb/company/index",
+      "style": {
+        "navigationBarTitleText": "入驻企业",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/syb/company/detail",
+      "style": {
+        "navigationBarTitleText": "公司详情",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/activity/index",
+      "style": {
+        "navigationBarTitleText": "活动",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/activity/detail",
+      "style": {
+        "navigationBarTitleText": "活动详情",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/activity/my",
+      "style": {
+        "navigationBarTitleText": "我的记录",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/activity/add",
+      "style": {
+        "navigationBarTitleText": "发布活动"
+      }
+    }, {
+      "path": "pages/app/work-study/index",
+      "style": {
+        "navigationBarTitleText": "勤工助学",
+        "enablePullDownRefresh": true
+      }
+    }, {
+      "path": "pages/app/work-study/detail",
+      "style": {
+        "navigationBarTitleText": "岗位信息",
+        "enablePullDownRefresh": true
+      }
+    }, {
       "path": "pages/my/my",
       "style": {
         "navigationBarTitleText": "我的",
-        "enablePullDownRefresh": true
+        "app-plus": {
+          "titleNView": {
+            "buttons": [{
+              "text": "\ue534",
+              "fontSrc": "/static/uni.ttf",
+              "fontSize": "22px",
+              "color": "#999999"
+            }]
+          }
+        }
+      }
+    }, {
+      "path": "pages/auth/login",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    }, {
+      "path": "pages/auth/pwd",
+      "style": {
+        "navigationBarTitleText": ""
+      }
+    }, {
+      "path": "pages/auth/reg",
+      "style": {
+        "navigationBarTitleText": ""
       }
     }
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	"tabBar": {
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
     "color": "#7A7E83",
     "selectedColor": "#007AFF",
     "borderStyle": "black",
@@ -60,6 +242,18 @@
       "iconPath": "static/tabbar/my.png",
       "selectedIconPath": "static/tabbar/myHL.png",
       "text": "我的"
+    }]
+  },
+  "condition": { 
+    "current": 1, 
+    "list": [{
+      "name": "ESC", 
+      "path": "pages/app/esc/index", 
+      "query": "" 
+    }, {
+      "name": "首页", 
+      "path": "pages/home/index", 
+      "query": "" 
     }]
   }
 }

@@ -1,21 +1,24 @@
 <template>
-  <view class="ts-swiper-msg">
-    <view class="ts-swiper-msg-icon">
-      <slot name="icon">
-        <image :src="defaultIcon" mode="widthFix"></image>
-      </slot>
-    </view>
-    <swiper :vertical="vertical" autoplay="true" circular="true" interval="3000">
-      <block v-for="(item,index) in messages" :key="index">
-        <swiper-item>
-          <text>{{item}}</text>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>		
+	<!-- <view class="ts-row ts-padding">		 -->
+			<view class="ts-swiper-msg">
+				<view class="ts-swiper-msg-icon">
+					<slot name="icon">
+            <image :src="defaultIcon" mode="widthFix"></image>
+					</slot>
+				</view>
+				<swiper :vertical="vertical" autoplay="true" circular="true" interval="3000">
+          <block v-for="(item,index) in messages" :key="index">
+					<swiper-item>
+						<text>{{item}}</text>
+					</swiper-item>
+				</block>
+				</swiper>
+			</view>		
+	<!-- </view> -->
 </template>
 
 <script>
+
 	export default {
     data() {
     	return {
@@ -23,17 +26,18 @@
     	}
     },
 		props: {
-      vertical: {
-        type: Boolean,
-        default: true,
+      vertical:{
+        type:Boolean,
+        default:true,
       },
 			messages: {
 				type: Array,
-				defaul () {
-					return []
+				default() {
+					return [];
 				}
 			}
 		}
+
 	}
 </script>
 
